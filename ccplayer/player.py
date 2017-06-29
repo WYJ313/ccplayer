@@ -32,6 +32,7 @@ class UItest(QtGui.QMainWindow):
         self.index = -1
         self.lyric = {}
         self.simplify = OFF
+        self.state = OFF
 
         self.media_obj = phonon.Phonon.MediaObject(self)
         self.audio_sink = Phonon.AudioOutput(Phonon.MusicCategory, self)
@@ -96,11 +97,13 @@ class UItest(QtGui.QMainWindow):
             self.ui.open_button.move(190, 0)
             self.ui.simplify_button.move(220, 0)
             self.simplify = ON
+            logging.debug('简单模式开启')
         elif self.simplify == ON:
             self.setFixedSize(259, 513)
             self.ui.open_button.move(10, 450)
             self.ui.simplify_button.move(70,450)
             self.simplify = OFF
+            logging.debug('简单模式关闭')
         else:
             logging.debug('精简模式出现异常')
 
@@ -119,16 +122,16 @@ class UItest(QtGui.QMainWindow):
                 if i < self.index:
                     count += 1
                 del self.sources[i-count2]
+                logging.debug(u"从播放列表删除："+self.ui.table_widget.item(i-count2, 0).text())
                 self.ui.table_widget.removeRow(i-count2)
                 count2 += 1
             self.index -= count
             if len(self.sources) == 0:
                 self.terminate_clicked_twice()
                 return
-            self.index %= len(self.sources)
-            print('current index:'+str(self.index))
+            self.index %= len(self.sources)     # 如果删除后列表不为空，则播放下一首
             self.file = self.sources[self.index]
-            file = self.file
+            logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
             self.state = ON
             if self.file:
                 self.file = os.path.normpath(self.file)
@@ -139,7 +142,6 @@ class UItest(QtGui.QMainWindow):
                 self.ui.name_label.setText(self.file.split('\\')[-1].split('.')[0])
                 self.load_lyric()
                 self.ui.play_button.setIcon(self.ui.play_icon)
-            print(len(self.sources))
             if len(self.sources) > 0:
                 pass
             else:
@@ -151,18 +153,16 @@ class UItest(QtGui.QMainWindow):
                 if i < self.index:
                     count += 1
                 del self.sources[i-count2]
+                logging.debug(u"从播放列表删除："+self.ui.table_widget.item(i-count2, 0).text())
                 self.ui.table_widget.removeRow(i-count2)
                 count2 += 1
             self.index -= count
-        print('len source:'+str(len(self.sources)))
-        print(self.index)
+
 
     def versection_clicked(self ,index):
         self.index = index
-        print('clicked play:'+str(index))
         self.file = self.sources[index]
-        file = self.file
-        print(self.file.split('/')[-1].split('.')[0])
+        logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
         self.state = ON
         if self.file:
             self.file = os.path.normpath(self.file)
@@ -188,6 +188,7 @@ class UItest(QtGui.QMainWindow):
         tmp = random.randint(0, len(self.sources)-1)
         self.index = tmp
         self.file = self.sources[tmp]
+        logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
         self.file = os.path.normpath(self.file)
         self.load_media()
         self.play_media()
@@ -220,6 +221,7 @@ class UItest(QtGui.QMainWindow):
         if self.media_source:
             self.index = (self.index +len(self.sources) - 1) % len(self.sources)
             self.file = self.sources[self.index]
+            logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
             self.file = os.path.normpath(self.file)
             self.load_media()
             self.play_media()
@@ -233,6 +235,7 @@ class UItest(QtGui.QMainWindow):
         if self.media_source:
             self.index = (self.index +len(self.sources) + 1) % len(self.sources)
             self.file = self.sources[self.index]
+            logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
             self.file = os.path.normpath(self.file)
             self.load_media()
             self.play_media()
@@ -256,14 +259,13 @@ class UItest(QtGui.QMainWindow):
     def terminate_clicked_twice(self):      # 这个方法主要是为了解决当terminate时，slider变化导致歌词没有清空的问题
         self.terminate_clicked()
         self.terminate_clicked()
+        logging.debug(u'终止状态')
 
     def open_clicked(self):
-        logging.debug('open button clicked')
         self.file = ''
         self.file = unicode(QtGui.QFileDialog.getOpenFileName(self, 'Open Audio File',
                 './musics/', 'MP3 file (*.mp3);;wav(*.wav);;'))
-        logging.debug(self.file)
-
+        logging.debug(u'打开文件路径：'+self.file)
         if self.file:
             self.state = ON
             self.sources.append(self.file)
@@ -272,7 +274,6 @@ class UItest(QtGui.QMainWindow):
             self.load_media()
             self.play_media()
             self.load_lyric()
-
             self.ui.play_button.setIcon(self.ui.play_icon)
 
     def play_clicked(self):
@@ -288,15 +289,18 @@ class UItest(QtGui.QMainWindow):
             self.media_obj.pause()
             self.state = OFF
             self.ui.play_button.setIcon(self.ui.pause_icon)
+            logging.debug(u'暂停状态')
         else:
             self.media_obj.play()
             self.state = ON
             self.ui.play_button.setIcon(self.ui.play_icon)
+            logging.debug(u'播放状态')
 
     def load_media(self):
         self.state = ON
         self.media_source = phonon.Phonon.MediaSource(self.file)
         self.media_obj.setCurrentSource(self.media_source)
+        logging.debug(u'正在载入音乐文件')
 
 
     def load_lyric(self):
@@ -305,13 +309,15 @@ class UItest(QtGui.QMainWindow):
             f = self.sources[self.index].replace('.mp3', '.lrc')
             lp.loads(f)
             self.lyric = lp.dumps()
+            logging.debug(u'正在载入歌词文件')
         except:
-            logging.debug('没有发现歌词')
+            logging.debug(u'没有发现歌词文件')
 
     def play_media(self):
         if self.state == ON:
             self.media_obj.play()
             self.ui.name_label.setText(self.file.split('\\')[-1])
+
 
     def closeEvent(self, QCloseEvent):
         with open('./configs/sources.config', 'w') as output:
@@ -355,6 +361,13 @@ class UItest(QtGui.QMainWindow):
                  for j in range(cols):
                      item = QtGui.QTableWidgetItem(lst[i][j].decode('utf-8'))
                      self.ui.table_widget.setItem(i, j, item)
+         logging.debug(u'正在加载配置文件')
+'''
+    def mouseMoveEvent(self, e):
+        print('hello')
+        if e.globalPost() <10:
+            print('hello')
+            '''
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
