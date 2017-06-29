@@ -5,6 +5,7 @@ import logging
 import os
 import random
 import sys
+import urllib2
 
 from PyQt4 import QtGui, QtCore
 from PyQt4 import phonon
@@ -54,8 +55,9 @@ class Player(QtGui.QMainWindow):
         self.show()
 
     def _connect(self):
-        self.connect(self.ui.openButton, QtCore.SIGNAL('clicked()'), self.openClicked)
-        self.connect(self.ui.deleteButton, QtCore.SIGNAL(u'clicked()'),
+        self.connect(self.ui.openButton, QtCore.SIGNAL('clicked()'),
+                     self.openClicked)
+        self.connect(self.ui.deleteButton, QtCore.SIGNAL('clicked()'),
                      self.deleteClicked)
         self.connect(self.ui.playButton, QtCore.SIGNAL('clicked()'),
                      self.playClicked)
@@ -75,6 +77,7 @@ class Player(QtGui.QMainWindow):
         self.connect(self.ui.simplifyButton, QtCore.SIGNAL('clicked()'),
                      self.simplifyButtonClicked)
         self.mediaObj.totalTimeChanged.connect(self.changeEndTime)
+
 
     def changeEndTime(self):
         if self.state == ON:
@@ -99,7 +102,7 @@ class Player(QtGui.QMainWindow):
         elif self.simplify == ON:
             self.setFixedSize(259, 513)
             self.ui.openButton.move(10, 450)
-            self.ui.simplifyButton.move(70,450)
+            self.ui.simplifyButton.move(70, 450)
             self.simplify = OFF
             logging.debug(u'简单模式关闭')
         else:
@@ -220,29 +223,35 @@ class Player(QtGui.QMainWindow):
 
     def rewindClicked(self):
         if self.mediaSource:
-            self.index = (self.index +len(self.sources) - 1) % len(self.sources)
-            self.file = self.sources[self.index]
-            logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
-            self.file = os.path.normpath(self.file)
-            self.loadMedia()
-            self.playMedia()
-            self.loadLyric()
-            self.ui.endTimeLabel.setText(u'%02d:%02d' %
-                                  (self.setTime(self.mediaObj.totalTime())))
+            if self.ui.modeCombobox.currentText() == u'随机':
+                self.randomPlay()
+            else:
+                self.index = (self.index +len(self.sources) - 1) % len(self.sources)
+                self.file = self.sources[self.index]
+                logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
+                self.file = os.path.normpath(self.file)
+                self.loadMedia()
+                self.playMedia()
+                self.loadLyric()
+                self.ui.endTimeLabel.setText(u'%02d:%02d' %
+                                      (self.setTime(self.mediaObj.totalTime())))
         else:
             self.ui.nameLabel.setText(u'请先打开一个文件')
 
     def nextClicked(self):
         if self.mediaSource:
-            self.index = (self.index +len(self.sources) + 1) % len(self.sources)
-            self.file = self.sources[self.index]
-            logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
-            self.file = os.path.normpath(self.file)
-            self.loadMedia()
-            self.playMedia()
-            self.loadLyric()
-            self.ui.endTimeLabel.setText(u'%02d:%02d' %
-                                  (self.setTime(self.mediaObj.totalTime())))
+            if self.ui.modeCombobox.currentText() == u'随机':
+                self.randomPlay()
+            else:
+                self.index = (self.index +len(self.sources) + 1) % len(self.sources)
+                self.file = self.sources[self.index]
+                logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
+                self.file = os.path.normpath(self.file)
+                self.loadMedia()
+                self.playMedia()
+                self.loadLyric()
+                self.ui.endTimeLabel.setText(u'%02d:%02d' %
+                                      (self.setTime(self.mediaObj.totalTime())))
         else:
             self.ui.nameLabel.setText(u'请先打开一个文件')
 

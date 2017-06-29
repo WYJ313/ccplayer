@@ -18,8 +18,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ccplayer/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+            <state relative-caret-position="299">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="e#48#58#0" expanded="true" />
               </folding>
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="player.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ccplayer/logistic/player.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="387" column="34" lean-forward="false" selection-start-line="387" selection-start-column="34" selection-end-line="387" selection-end-column="34" />
+            <state relative-caret-position="244">
+              <caret line="225" column="12" lean-forward="true" selection-start-line="225" selection-start-column="12" selection-end-line="226" selection-end-column="33" />
               <folding>
                 <element signature="e#48#62#0" expanded="true" />
               </folding>
@@ -39,11 +39,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="player_ui.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="player_ui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ccplayer/ui/player_ui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="148" column="24" lean-forward="true" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+            <state relative-caret-position="184">
+              <caret line="86" column="70" lean-forward="true" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -54,6 +64,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sources.config" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ccplayer/configs/sources.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table_widget.config" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ccplayer/configs/table_widget.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -89,8 +119,9 @@
         <option value="$PROJECT_DIR$/ccplayer/main.py" />
         <option value="$PROJECT_DIR$/ccplayer/configs/sources.config" />
         <option value="$PROJECT_DIR$/ccplayer/configs/mode.config" />
-        <option value="$PROJECT_DIR$/ccplayer/logistic/player.py" />
+        <option value="$PROJECT_DIR$/readme" />
         <option value="$PROJECT_DIR$/ccplayer/ui/player_ui.py" />
+        <option value="$PROJECT_DIR$/ccplayer/logistic/player.py" />
       </list>
     </option>
   </component>
@@ -155,24 +186,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccplayer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccplayer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ccplayer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="configs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -186,13 +199,13 @@
     <property name="last_opened_file_path" value="$USER_HOME$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer\ccplayer\logistic" />
-      <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer\logistic" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer" />
       <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer\ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer\ccplayer\logistic" />
+      <recent name="C:\Users\gzs10399\PycharmProjects\ccplayer\logistic" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -455,7 +468,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929292" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929292" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32929292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32929292" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -480,72 +493,36 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ccplayer/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="184">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
           <folding>
             <element signature="e#48#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/player.py">
+    <entry file="file://$PROJECT_DIR$/ccplayer/logistic/player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/ui/player_ui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmEdu3.5/system/python_stubs/-762174762/PyQt4/QtGui/QApplication.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="381" column="8" lean-forward="false" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ccplayer/player_ui.py" />
-    <entry file="file://$PROJECT_DIR$/ui/player_ui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logistic/player.py" />
-    <entry file="file://$PROJECT_DIR$/lyricparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/readme">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ccplayer/configs/sources.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ccplayer/configs/table_widget.config">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="207">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -561,28 +538,90 @@
     <entry file="file://$PROJECT_DIR$/ccplayer/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="e#48#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ccplayer/logistic/player.py">
+    <entry file="file://$PROJECT_DIR$/player.py" />
+    <entry file="file://$USER_HOME$/.PyCharmEdu3.5/system/python_stubs/-762174762/PyQt4/QtGui/QApplication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="387" column="34" lean-forward="false" selection-start-line="387" selection-start-column="34" selection-end-line="387" selection-end-column="34" />
-          <folding>
-            <element signature="e#48#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="244">
+          <caret line="381" column="8" lean-forward="false" selection-start-line="381" selection-start-column="8" selection-end-line="381" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/player_ui.py" />
+    <entry file="file://$PROJECT_DIR$/ui/player_ui.py" />
+    <entry file="file://$PROJECT_DIR$/logistic/player.py" />
+    <entry file="file://$PROJECT_DIR$/lyricparser.py" />
+    <entry file="file://$PROJECT_DIR$/player.py" />
+    <entry file="file://C:/Python27/Lib/urllib2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="437" column="36" lean-forward="true" selection-start-line="437" selection-start-column="36" selection-end-line="437" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ccplayer/ui/player_ui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="148" column="24" lean-forward="true" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+        <state relative-caret-position="184">
+          <caret line="86" column="70" lean-forward="true" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#48#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/configs/mode.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/configs/sources.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/configs/table_widget.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="12" lean-forward="false" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ccplayer/logistic/player.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="225" column="12" lean-forward="true" selection-start-line="225" selection-start-column="12" selection-end-line="226" selection-end-column="33" />
+          <folding>
+            <element signature="e#48#62#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
