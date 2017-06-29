@@ -27,14 +27,15 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName(_fromUtf8("Dialog"))
         Dialog.setFixedSize(259, 513)
-        self.open_icon = QtGui.QIcon("../icons/open")
-        self.delete_icon = QtGui.QIcon("../icons/delete")
-        self.rewind_icon = QtGui.QIcon("../icons/rewind")
-        self.play_icon = QtGui.QIcon("../icons/play")
-        self.pause_icon = QtGui.QIcon("../icons/pause")
-        self.terminate_icon = QtGui.QIcon('../icons/terminate')
-        self.next_icon = QtGui.QIcon("../icons/next")
-        self.simplify_icon = QtGui.QIcon('../icons/simplify')
+        self.logo_icon = QtGui.QIcon('./icons/logo')
+        self.open_icon = QtGui.QIcon("./icons/open")
+        self.delete_icon = QtGui.QIcon("./icons/delete")
+        self.rewind_icon = QtGui.QIcon("./icons/rewind")
+        self.play_icon = QtGui.QIcon("./icons/play")
+        self.pause_icon = QtGui.QIcon("./icons/pause")
+        self.terminate_icon = QtGui.QIcon('./icons/terminate')
+        self.next_icon = QtGui.QIcon("./icons/next")
+        self.simplify_icon = QtGui.QIcon('./icons/simplify')
         self.seek_slider = phonon.Phonon.SeekSlider(Dialog)
         self.seek_slider.setGeometry(QtCore.QRect(10, 30, 241, 19))
         self.seek_slider.setObjectName(_fromUtf8("seek_slider"))
@@ -103,6 +104,9 @@ class Ui_Dialog(object):
         self.table_widget.setHorizontalHeaderLabels([u'歌名', u'时长'])
         self.table_widget.setEditTriggers(QtGui.QTableWidget.NoEditTriggers)
         # self.table_widget.verticalHeader().setVisible(False)
+        palette = QtGui.QPalette(self)
+        palette.setColor(self.table_widget.backgroundRole(), QtGui.QColor(255, 255, 255))   # 因为表头会继承背景颜色，所以把它调成白色
+        self.table_widget.verticalHeader().setPalette(palette)
         self.table_widget.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.table_widget.setSelectionMode(QtGui.QAbstractItemView.ExtendedSelection)
         self.table_widget.setShowGrid(False)
@@ -119,6 +123,14 @@ class Ui_Dialog(object):
 
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "CC Player", None))
+        Dialog.setWindowFlags(QtCore.Qt.WindowMinimizeButtonHint)
+        Dialog.setWindowIcon(self.logo_icon)
+        palette1 = QtGui.QPalette(self)
+        palette1.setColor(Dialog.backgroundRole(), QtGui.QColor(0, 206, 209))   # 设置背景颜色
+        #palette1.setBrush(Dialog.backgroundRole(),
+        #                  QtGui.QBrush(QtGui.QPixmap('../icons/background.jpg')))   # 设置背景图片
+        Dialog.setPalette(palette1)
+        Dialog.setAutoFillBackground(True) # 不设置也可以
         self.now_time_label.setText('00:00')
         self.end_time_label.setText('00:00')
         self.mode_combobox.setItemText(0, _translate("Dialog", "顺序", None))
