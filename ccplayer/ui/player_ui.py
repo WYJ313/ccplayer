@@ -143,5 +143,17 @@ class Ui_Dialog(object):
         self.modeCombobox.setItemText(0, _translate(u"Dialog", u"顺序", None))
         self.modeCombobox.setItemText(1, _translate(u"Dialog", u"循环", None))
         self.modeCombobox.setItemText(2, _translate(u"Dialog", u"随机", None))
+        self.tray = QtGui.QSystemTrayIcon(Dialog)
+        self.tray.setIcon(self.logoIcon)
+        self.trayMenu = QtGui.QMenu(Dialog)
+        self.tray.show()
+        self.aboutAction = QtGui.QAction(u"&显示", Dialog,
+                                        triggered=Dialog.resize)
+        self.quitAction = QtGui.QAction(u"&退出", Dialog,
+                                        triggered=QtGui.qApp.quit)
+        self.trayMenu = QtGui.QMenu(Dialog)
+        self.trayMenu.addAction(self.aboutAction)
+        self.trayMenu.addAction(self.quitAction)
+        self.tray.setContextMenu(self.trayMenu)
 
 from PyQt4 import phonon

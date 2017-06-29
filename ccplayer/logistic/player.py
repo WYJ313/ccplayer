@@ -326,8 +326,19 @@ class Player(QtGui.QMainWindow):
 
 
     def closeEvent(self, QCloseEvent):
+        reply = QtGui.QMessageBox.question(self, u'提示',
+                    u'是否最小化到托盘', QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
+        if reply == QtGui.QMessageBox.Yes:
+            QCloseEvent.ignore()
+            self.setFixedSize(0, 0)
+        else:
+            QCloseEvent.accept()
+
         with open(u'./configs/sources.config', 'w') as output:
             output.write(';'.join(self.sources))
+
+        with open(u'./configs/mode.config', 'w') as output:
+            output.write(str(self.ui.modeCombobox.currentIndex()))
 
         with open(u'./configs/table_widget.config', 'w') as output:
             rows = self.ui.tableWidget.rowCount()
@@ -343,6 +354,10 @@ class Player(QtGui.QMainWindow):
 
 
     def loadConfig(self):
+         with open(u'./configs/mode.config', 'r') as input:
+             line = input.readline()
+             self.ui.modeCombobox.setCurrentIndex(int(line))
+
          with open(u'./configs/sources.config', 'r') as input:
              lines = input.readline()
              if len(lines) == 0:
@@ -368,4 +383,7 @@ class Player(QtGui.QMainWindow):
                      item = QtGui.QTableWidgetItem(lst[i][j].decode(u'utf-8'))
                      self.ui.tableWidget.setItem(i, j, item)
          logging.debug(u'正在加载配置文件')
+
+    def resize(self):
+        self.setFixedSize(259, 513)
 
