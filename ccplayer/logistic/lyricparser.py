@@ -7,11 +7,9 @@ class LyricParser:
     def __init__(self):
         self.res = {}
 
-    def loads(self, f,):
-        with open(f, 'r') as input:
-            for line in input.readlines():
-                tmp = line.decode('utf-8')
-                #print(tmp)
+    def loads(self, fileName):
+        with open(fileName, 'r') as f:
+            for line in f.readlines():
                 m = re.match('(\[\d{2}:\d{2}\.\d{2}\])(.+)', line)
                 if m is not None:
                     tmp = m.group()
@@ -23,7 +21,6 @@ class LyricParser:
 
     def dumps(self):
         return self.res
-
 
 if __name__ == '__main__':
     lp = LyricParser()

@@ -5,7 +5,7 @@ import sys
 
 from PyQt4 import QtGui
 
-from ccplayer.logistic.player import Player
+from logistic.player import Player
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

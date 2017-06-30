@@ -11,7 +11,7 @@ from PyQt4 import QtGui, QtCore
 from PyQt4 import phonon
 from PyQt4.phonon import Phonon
 
-from ccplayer.logistic.lyricparser import LyricParser
+from lyricparser import LyricParser
 from ccplayer.ui.player_ui import Ui_Dialog
 
 logging.basicConfig(level=logging.DEBUG)
@@ -34,6 +34,7 @@ class Player(QtGui.QMainWindow):
         self.lyric = {}
         self.simplify = OFF
         self.state = OFF
+        self.path = u'./musics/'
 
         self.mediaObj = phonon.Phonon.MediaObject(self)
         self.audioSink = Phonon.AudioOutput(Phonon.MusicCategory, self)
@@ -74,10 +75,27 @@ class Player(QtGui.QMainWindow):
                      self.order)
         self.ui.tableWidget.verticalHeader().sectionDoubleClicked\
             .connect(self.versectionClicked)
+        self.ui.tableWidget.cellDoubleClicked.connect(self.cellDoubleClicked)
         self.connect(self.ui.simplifyButton, QtCore.SIGNAL('clicked()'),
                      self.simplifyButtonClicked)
         self.mediaObj.totalTimeChanged.connect(self.changeEndTime)
 
+    def cellDoubleClicked(self, i, j):
+        self.index = i
+        self.file = self.sources[i]
+        logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
+        self.state = ON
+        if self.file:
+            self.file = os.path.normpath(self.file)
+            self.ui.endTimeLabel.setText(self.ui.tableWidget.item(i, 1).text())
+            self.ui.nameLabel.setText(self.file.split('\\')[-1].split('.')[0])
+            self.ui.playButton.setIcon(self.ui.playIcon)
+            try:
+                self.loadMedia()
+                self.playMedia()
+                self.loadLyric()
+            except RuntimeError as e:
+                raise e
 
     def changeEndTime(self):
         if self.state == ON:
@@ -159,8 +177,7 @@ class Player(QtGui.QMainWindow):
                 count2 += 1
             self.index -= count
 
-
-    def versectionClicked(self ,index):
+    def versectionClicked(self, index):
         self.index = index
         self.file = self.sources[index]
         logging.debug(u'当前播放：'+self.file.split('/')[-1].split('.')[0])
@@ -274,7 +291,8 @@ class Player(QtGui.QMainWindow):
     def openClicked(self):
         self.file = u''
         self.file = unicode(QtGui.QFileDialog.getOpenFileName(self, u'Open Audio File',
-                u'./musics/', u'MP3 file (*.mp3);;wav(*.wav);;'))
+                self.path, u'MP3 file (*.mp3);;wav(*.wav);;'))
+        self.path = self.file
         logging.debug(u'打开文件路径：'+self.file)
         suffix = self.file.split('\\')[-1].split('.')[-1]
         if suffix in [u'mp3', u'wav']:
@@ -286,17 +304,19 @@ class Player(QtGui.QMainWindow):
             self.playMedia()
             self.loadLyric()
             self.ui.playButton.setIcon(self.ui.playIcon)
-        else:
-            raise ValueError(u'不合法的音乐类型')
 
     def playClicked(self):
         if self.mediaSource is None:
-            self.ui.nameLabel.setText(u'请先打开一个文件')
-            return
-
-        if self.mediaObj is None:
-            self.ui.nameLabel.setText(u"文件格式错误")
-            return
+            if len(self.sources) > 0:
+                self.index = 0
+                self.file = os.path.normpath(self.sources[self.index])
+                self.loadMedia()
+                self.playMedia()
+                self.loadLyric()
+                self.ui.playButton.setIcon(self.ui.playIcon)
+                return
+            else:
+                self.ui.nameLabel.setText(u'请先打开一个文件')
 
         if self.state == ON:
             self.mediaObj.pause()
@@ -323,8 +343,7 @@ class Player(QtGui.QMainWindow):
             self.lyric = lp.dumps()
             logging.debug(u'正在载入歌词文件')
         except IOError as e:
-            logging.error(u'没有发现歌词文件')
-            raise e
+            logging.debug(u'没有发现歌词文件')
 
     def playMedia(self):
         if self.state == ON:
